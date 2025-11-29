@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.example</groupId>
+  <groupId>autoTest</groupId>
   <artifactId>hwrk4</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -14,6 +14,7 @@
         <hibernate-version>5.0.1.Final</hibernate-version>
         <flyway.version>8.5.13</flyway.version>
         <surefire.version>2.22.2</surefire.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <!-- Архивирование -->
@@ -60,6 +61,12 @@
             <artifactId>sqlite-dialect</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.edc</groupId>
+            <artifactId>runtime-metamodel</artifactId>
+            <version>0.14.1</version>
+        </dependency>
     </dependencies>
 
     <!-- Сборка -->
@@ -79,11 +86,11 @@
                 <version>${flyway.version}</version>
                 <configuration>
                     <baselineOnMigrate>true</baselineOnMigrate>
-                    <!--<user>user</user>
+                    <user>user</user>
                     <password>password</password>
                     <schemas>
                         <schema>schemaName</schema>
-                    </schemas>  -->
+                    </schemas>
                     <url>jdbc:sqlite:demo.db</url>
                     <locations>filesystem:db/demo/migration</locations>
                 </configuration>
